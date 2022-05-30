@@ -64,6 +64,7 @@ public class CykelrytterController {
         }
     }
 
+    //FIND HOLD VIA RYTTERE
     @GetMapping("/ryttereViaHold/{id}")
     public Optional<Cykelhold> findRytterViaHoldId(@PathVariable String id) {
         return cykelholdService.findById(id);

@@ -37,4 +37,6 @@ public class CykelrytterService {
     public void sletRytter(int id) {
         cykelrytterRepository.deleteById(id);
     }
+
+
 }
