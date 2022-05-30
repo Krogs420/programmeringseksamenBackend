@@ -1,24 +1,28 @@
 package com.example.programmeringseksamenbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cykelhold {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int holdId;
+    private String holdId;
     private String holdNavn;
-    private String holdRyttere;
 
-    public int getHoldId() {
+    @OneToMany
+    @JoinColumn(name="rytterId")
+    @JsonBackReference
+    private List<Cykelrytter> cykelrytter;
+
+    public String getHoldId() {
         return holdId;
     }
 
-    public void setHoldId(int holdId) {
+    public void setHoldId(String holdId) {
         this.holdId = holdId;
     }
 
@@ -30,11 +34,11 @@ public class Cykelhold {
         this.holdNavn = holdNavn;
     }
 
-    public String getHoldRyttere() {
-        return holdRyttere;
+    public List<Cykelrytter> getCykelrytter() {
+        return cykelrytter;
     }
 
-    public void setHoldRyttere(String holdRyttere) {
-        this.holdRyttere = holdRyttere;
+    public void setCykelrytter(List<Cykelrytter> cykelrytter) {
+        this.cykelrytter = cykelrytter;
     }
 }

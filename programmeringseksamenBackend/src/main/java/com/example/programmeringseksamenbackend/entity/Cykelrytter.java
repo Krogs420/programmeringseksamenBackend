@@ -1,9 +1,8 @@
 package com.example.programmeringseksamenbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 @Entity
 public class Cykelrytter {
@@ -17,6 +16,13 @@ public class Cykelrytter {
     private String rytterPoints;
     private String rytterTid;
     private String rytterTrøje;
+
+
+    @ManyToOne
+    @JoinColumn(name="holdId")
+    @JsonBackReference
+    private Cykelhold cykelhold;
+
 
     public int getRytterId() {
         return rytterId;
@@ -72,5 +78,13 @@ public class Cykelrytter {
 
     public void setRytterTrøje(String rytterTrøje) {
         this.rytterTrøje = rytterTrøje;
+    }
+
+    public Cykelhold getCykelhold() {
+        return cykelhold;
+    }
+
+    public void setCykelhold(Cykelhold cykelhold) {
+        this.cykelhold = cykelhold;
     }
 }

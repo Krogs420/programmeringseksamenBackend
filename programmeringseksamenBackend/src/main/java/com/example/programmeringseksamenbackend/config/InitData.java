@@ -1,4 +1,4 @@
-package com.example.programmeringseksamenbackend.config;
+/* package com.example.programmeringseksamenbackend.config;
 
 import com.example.programmeringseksamenbackend.entity.Cykelhold;
 import com.example.programmeringseksamenbackend.entity.Cykelrytter;
@@ -24,7 +24,6 @@ public class InitData implements CommandLineRunner {
         //Cykelhold
         Cykelhold cykelhold = new Cykelhold();
         cykelhold.setHoldNavn("Trek - Segafredo");
-        cykelhold.setHoldRyttere("Bjarne" + "Flemming");
 
         cykelholdService.saveCykelhold(cykelhold);
 
@@ -50,3 +49,5 @@ public class InitData implements CommandLineRunner {
         cykelrytterService.saveCykelrytter(cykelrytter1);
     }
 }
+
+ */
